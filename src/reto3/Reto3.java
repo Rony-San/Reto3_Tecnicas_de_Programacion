@@ -1,3 +1,6 @@
+// Integrantes:
+// RONY SANTIAGO BANOL
+// C.C 1017259485
 
 package reto3;
 
