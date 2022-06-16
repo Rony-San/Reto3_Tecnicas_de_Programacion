@@ -1,4 +1,4 @@
-# Reto3_Tecnicas_de_Programacion
+# Reto3_Tecnicas_de_Programación
 
 Integrantes: 
 
