@@ -11,20 +11,25 @@ package reto3;
  */
 public class Motor {
 
-    private double cilindraje; 
-    private String marca; 
-    private String referencia; 
+    private double cilindraje;
+    private String marca;
+    private String referencia;
     private double peso;
-    private String descripcion; 
+    private String descripcion;
 
-    public Motor(double cilindraje, String marca, String referencia, double peso, String descripcion) {
+    public Motor(double cilindraje, String marca, String referencia, double peso, String descripcion) throws PesoNegativoException {
         this.cilindraje = cilindraje;
         this.marca = marca;
         this.referencia = referencia;
-        this.peso = peso;
+        if (peso > 0) {
+            this.peso = peso;
+        } else {
+            throw new PesoNegativoException();
+        }
         this.descripcion = descripcion;
+    
     }
-
+    
     public double getCilindraje() {
         return cilindraje;
     }
@@ -53,8 +58,12 @@ public class Motor {
         return peso;
     }
 
-    public void setPeso(double peso) {
-        this.peso = peso;
+    public void setPeso(double peso) throws PesoNegativoException {
+        if (peso > 0) {
+            this.peso = peso;
+        } else {
+            throw new PesoNegativoException();
+        }
     }
 
     public String getDescripcion() {
@@ -64,6 +73,5 @@ public class Motor {
     public void setDescripcion(String descripcion) {
         this.descripcion = descripcion;
     }
-
 
 }

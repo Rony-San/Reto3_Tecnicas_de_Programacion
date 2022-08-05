@@ -1,8 +1,8 @@
-// Integrantes:
-// RONY SANTIAGO BANOL
-// C.C 1017259485
 
 package reto3;
+
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 
 public class Reto3 {
@@ -15,8 +15,15 @@ public class Reto3 {
         
         // Creación de un objeto de la clase vendedor 
         
-        Vendedor vendedor = new Vendedor(2021,"10337661941","lise"
-        ,"Calambas Madrid",24,5000000,descripcionVendedor);
+        Vendedor vendedor = null;
+        try {
+            vendedor = new Vendedor(2021,"10337661941","lise"
+                    ,"Calambas Madrid",24,5000000,descripcionVendedor);
+        } catch (VendedorMenorDeEdadException ex) {
+            Logger.getLogger(Reto3.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (AnioDeIngresoException ex) {
+            Logger.getLogger(Reto3.class.getName()).log(Level.SEVERE, null, ex);
+        }
         
         // Creación de objetos llantas y añadiendolos a una array LLantas
         Llanta[] llantas = new Llanta[4];

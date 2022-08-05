@@ -15,12 +15,19 @@ public class Vehiculo {
     private Motor motor;
 
     //Constructor de la clase
-    public Vehiculo(int anioFabricacion, String placa, String marca, String modelo, int kilometraje, String color, String descripcion, double precio, Vendedor vendedor, Llanta[] llantas, Motor motor) {
+    public Vehiculo(int anioFabricacion, String placa, String marca, String modelo, int kilometraje, String color, String descripcion, double precio, Vendedor vendedor, Llanta[] llantas, Motor motor) throws KilometrajeNegativoException {
         this.anioFabricacion = anioFabricacion;
         this.placa = placa;
         this.marca = marca;
         this.modelo = modelo;
-        this.kilometraje = kilometraje;
+        
+        //Excepción de kilometraje negativo
+        if (kilometraje >= 0) {
+            this.kilometraje = kilometraje;
+        } else {
+            throw new KilometrajeNegativoException();
+        }
+        
         this.color = color;
         this.descripcion = descripcion;
         this.precio = precio;
@@ -83,9 +90,15 @@ public class Vehiculo {
     public int getKilometraje() {
         return kilometraje;
     }
-
-    public void setKilometraje(int kilometraje) {
-        this.kilometraje = kilometraje;
+    
+    
+    public void setKilometraje(int kilometraje) throws KilometrajeNegativoException {
+        //Excepción de kilometraje negativo
+        if (kilometraje >= 0) {
+            this.kilometraje = kilometraje;
+        } else {
+            throw new KilometrajeNegativoException();
+        }
     }
 
     public String getColor() {

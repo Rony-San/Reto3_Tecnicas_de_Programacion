@@ -10,14 +10,20 @@ package reto3;
  * @author rony.banol
  */
 public class Llanta {
+
     private String marca;
     private String referencia;
     private double peso;
 
-    public Llanta(String marca, String referencia, double peso) {
+    public Llanta(String marca, String referencia, double peso) throws PesoNegativoException {
         this.marca = marca;
         this.referencia = referencia;
-        this.peso = peso;
+        // Excepcion de peso
+        if (peso > 0) {
+            this.peso = peso;
+        } else {
+            throw new PesoNegativoException();
+        }
     }
 
     public String getMarca() {
@@ -40,9 +46,13 @@ public class Llanta {
         return peso;
     }
 
-    public void setPeso(double peso) {
-        this.peso = peso;
+   // Excepcion de peso
+    public void setPeso(double peso) throws PesoNegativoException {
+        if (peso > 0) {
+            this.peso = peso;
+        } else {
+            throw new PesoNegativoException();
+        }
     }
-   
-    
+
 }
