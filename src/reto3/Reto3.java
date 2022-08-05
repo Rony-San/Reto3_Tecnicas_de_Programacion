@@ -28,19 +28,34 @@ public class Reto3 {
         // Creación de objetos llantas y añadiendolos a una array LLantas
         Llanta[] llantas = new Llanta[4];
         for (int i = 0 ; i <4 ; i++){
-            Llanta llanta = new Llanta("Pirelli","Nuevo-2017",3);
+            Llanta llanta = null;
+            try {
+                llanta = new Llanta("Pirelli","Nuevo-2017",3);
+            } catch (PesoNegativoException ex) {
+                Logger.getLogger(Reto3.class.getName()).log(Level.SEVERE, null, ex);
+            }
             llantas[i]=llanta;
         }
         
         // Creación de objetos motor  
         
-        Motor motor = new Motor(800,"HONDA","Serie 1354-asd 2017",150,"Motor clasico" );
+        Motor motor = null;
+        try {
+            motor = new Motor(800,"HONDA","Serie 1354-asd 2017",150,"Motor clasico" );
+        } catch (PesoNegativoException ex) {
+            Logger.getLogger(Reto3.class.getName()).log(Level.SEVERE, null, ex);
+        }
         
         
         // Creación objeto Vehiculo 
         
-        Vehiculo vehiculo = new Vehiculo(2017,"JW159E","HONDA","2017",1000,"Negro","Vehiculo"
-                + "para toda la familia",400000,vendedor,llantas,motor);
+        Vehiculo vehiculo = null;
+        try {
+            vehiculo = new Vehiculo(2017,"JW159E","HONDA","2017",1000,"Negro","Vehiculo"
+                    + "para toda la familia",400000,vendedor,llantas,motor);
+        } catch (KilometrajeNegativoException ex) {
+            Logger.getLogger(Reto3.class.getName()).log(Level.SEVERE, null, ex);
+        }
         
         
         
